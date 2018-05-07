@@ -1,0 +1,23 @@
+<div style="font-size: 20px;">
+  <div>
+    <b>Адрес доставки:</b> <:address:>
+    </div>
+  <div>
+    <b>Доставка:</b> <:delivery:>
+  </div>
+  <div>
+    <b>Имя:</b> <:name:>
+  </div>
+  <div>
+    <b>Телефон:</b> <:phone:>
+  </div>
+  <div>
+    <b>Итого:</b> <:total:> руб.
+  </div>
+  <div>
+    <h3 style="text-transform: uppercase">Заказаные товары</h4>
+  </div>
+  <div>
+    <:goods:>
+  </div>
+</div>

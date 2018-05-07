@@ -1,0 +1,18 @@
+<div style="display: flex;padding: 15px;border-bottom: 1px solid #f4f4f4;">
+  <img src="<:imgUrl:>" alt="<:title:>" style="width:150px;height:150px">
+
+  <div style="margin-left: 20px;width: 100%;">
+    <div style="font-size: 20px;font-weight: 700"><:title:></div>
+    <div style="font-size:16px;margin-top: 15px;">
+      <div>
+        <b>Цена:</b> <:price:> руб.
+      </div>
+      <div>
+        <b>Количество:</b> <:count:> шт.
+      </div>
+      <div>
+        <b>Вес:</b> <:weight:>
+      </div>
+    </div>
+  </div>
+</div>

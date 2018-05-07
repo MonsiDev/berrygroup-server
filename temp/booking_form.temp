@@ -1,0 +1,20 @@
+<div style="font-size: 18px;">
+  Бронирование столика
+</div>
+<div style="font-size: 16px;">
+  <div>
+    <b>Заведение:</b> <:rest:>
+    </div>
+  <div>
+    <b>Дата и время посещения:</b> <:datetime:>
+  </div>
+  <div>
+    <b>Имя посетителя:</b> <:name:>
+  </div>
+  <div>
+    <b>Телефон:</b> <:phone:>
+  </div>
+  <div>
+    <b>Количество персон:</b> <:count:>
+  </div>
+</div>
