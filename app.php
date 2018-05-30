@@ -15,6 +15,7 @@
     private static $tirex;
 
     private static $mailer;
+    public static $adminEmail = '';
 
     public static function Init() {
       self::$mailer = new PHPMailer;
@@ -117,6 +118,7 @@
           // $settings = preg_replace("/[^a-z0-9]+/i",'', $data['siteinfo']);
           $siteinfo = unserialize($data);
           $PDO = null;
+          APP::$adminEmail = $siteinfo['ru']['siteinfo_adminemail'];
           return [
             'phone' => $siteinfo['ru']['siteinfo_mainphone'],
             'time' => $siteinfo['ru']['contacts']['schedule'],
@@ -136,7 +138,7 @@
     public static function getCategory($param) {
       $PDO = self::PDOConnect($param);
       if($PDO) {
-        $sql = 'SELECT id,img,name FROM `store_category` c INNER JOIN `store_category_translate` t ON t.category_id = c.id WHERE t.publish_status=1';
+        $sql = 'SELECT id,img,name FROM `store_category` c INNER JOIN `store_category_translate` t ON t.category_id = c.id WHERE t.publish_status=1 ORDER BY c.position';
         $sth = $PDO->prepare($sql);
         $sth->execute();
         $fetchAll = $sth->fetchAll();
@@ -186,6 +188,7 @@
       self::$mailer->From = SMTP_USERNAME; // адрес почты, с которой идет отправка
       self::$mailer->FromName = SMTP_FROM_NAME; // имя отправителя
       self::$mailer->addAddress(SMTP_FROM_SEND, SMTP_FROM_NAME);
+      self::$mailer->addAddress(self::$adminEmail, SMTP_FROM_NAME);
       self::$mailer->isHTML(true);
       self::$mailer->Subject = SMTP_SUBJECT_SEND;
       self::$mailer->Body =  self::_getTPL([
