@@ -17,7 +17,7 @@
     echo "New connection\r\n";
     APP::Init();
   };
-  
+
   $ws_worker->onMessage = function($connection, $data) {
     $result = explode('=', $data);
     $msg = 'EMPTY';

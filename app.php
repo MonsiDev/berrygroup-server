@@ -160,8 +160,16 @@
         $sql = 'SELECT * FROM `store_goods` LEFT JOIN `store_goods_info` ON store_goods_info.good_id = store_goods.id LEFT JOIN `store_goods_img` ON store_goods_img.item_id = store_goods.id WHERE category_id = ? AND store_goods_info.publish_status = 1';
         $sth = $PDO->prepare($sql);
         $sth->execute([$category_id]);
+
+        $goods = $sth->fetchAll();
+        // $i = 0;
+        // $gCx = count($goods);
+        // for($i = 0; $i < $gCx; $i++) {
+        //   $goods[$i]['path'] = preg_replace("/.jpg$/i", '__420x420__.jpg', mb_strtolower($goods[$i]['path']));
+        // }
+
         $PDO = null;
-        return $sth->fetchAll();
+        return $goods;
       }
       return false;
     }
