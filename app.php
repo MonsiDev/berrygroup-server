@@ -138,7 +138,7 @@
     public static function getCategory($param) {
       $PDO = self::PDOConnect($param);
       if($PDO) {
-        $sql = 'SELECT id,img,name FROM `store_category` c INNER JOIN `store_category_translate` t ON t.category_id = c.id WHERE t.publish_status=1 ORDER BY c.position';
+        $sql = 'SELECT id,img,name FROM `store_category` c INNER JOIN `store_category_translate` t ON t.category_id = c.id WHERE t.publish_status=1 ORDER BY c.position DESC';
         $sth = $PDO->prepare($sql);
         $sth->execute();
         $fetchAll = $sth->fetchAll();
